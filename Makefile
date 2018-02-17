@@ -27,7 +27,7 @@ LIBFLAGS =  rcs
 
 ALL_INCLUDE = . ./include ./src
 
-ALL_LIBS = RTIMULib boost_system pthread redis3m
+ALL_LIBS = boost_system pthread redis3m
 
 PATHS = . ./include ./src
 

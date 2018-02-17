@@ -5,8 +5,8 @@ __Avionique sur Raspberry Pi - Partie Log__
 Développement d'un système avionique complet pour raspberry PI.  
   
 Objectif :  
-- Récupération des informations courante de la SenseHat sous redis
-- Récupération des informations courante du GPS sous redis
+- Récupération des informations courantes de la SenseHat sous redis
+- Récupération des informations courantes du GPS sous redis
 
 ... et écriture dans des fichiers de log
   
