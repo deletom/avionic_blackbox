@@ -37,6 +37,20 @@ std::string Redis::getDataSimple(std::string key) {
     return r.str();
 }
 
+std::string Redis::getDataList(std::string key){
+        std::string ret;
+        reply lrange = m_conn->run(command("LRANGE") 
+                            (key)
+                            ("-1")("-1"));
+        for(const reply& r : lrange.elements())
+        {
+            ret = r.str();
+        }
+        return ret;
+}
+
+
+
 void Redis::setDataConfig() {
 
     m_conn->run(command("FLUSHALL"));

@@ -71,18 +71,16 @@ int main(int argc, char** argv) {
         strftime(dt, 10, "%H %M %S ", tmp);
 
         if (fileImuSenseHat.is_open()) {
-            fileImuSenseHat << dt << " OFFSET   " << objRedis.getDataSimple("offset_x") << ";" << objRedis.getDataSimple("offset_y") << ";" << objRedis.getDataSimple("offset_z") << ";" << objRedis.getDataSimple("offset_altitude") << endl;
-            fileImuSenseHat << dt << " RAW ATT  " << objRedis.getDataSimple("current_raw_x") << ";" << objRedis.getDataSimple("current_raw_y") << ";" << objRedis.getDataSimple("current_raw_z") << ";" << objRedis.getDataSimple("current_raw_altitude") << endl;
-            fileImuSenseHat << dt << " RAW ACC  " << objRedis.getDataSimple("current_accel_x") << ";" << objRedis.getDataSimple("current_accel_y") << ";" << objRedis.getDataSimple("current_accel_z") << endl;
-            fileImuSenseHat << dt << " COMP ATT " << objRedis.getDataSimple("current_compensated_x") << ";" << objRedis.getDataSimple("current_compensated_y") << ";" << objRedis.getDataSimple("current_compensated_z") << ";" << objRedis.getDataSimple("current_compensated_altitude") << endl;
-            fileImuSenseHat << dt << " STATUS   " << objRedis.getDataSimple("current_time_imu") << endl;
+            fileImuSenseHat << dt << " ATT  " << objRedis.getDataSimple("current_x") << ";" << objRedis.getDataSimple("current_y") << ";" << objRedis.getDataSimple("current_z") << ";" << objRedis.getDataSimple("current_altitude") << endl;
+            fileImuSenseHat << dt << " ACC  " << objRedis.getDataSimple("current_accel_x") << ";" << objRedis.getDataSimple("current_accel_y") << ";" << objRedis.getDataSimple("current_accel_z") << endl;
+            fileImuSenseHat << dt << " STATUS   " << objRedis.getDataSimple("current_time_imu") << ";" << objRedis.getDataSimple("imu_nbrexec") << ";" << objRedis.getDataList("imu_nbrexecpersecond") << endl;
             fileImuSenseHat << dt << endl;
         }
 
         if (fileImuGps.is_open()) {
             fileImuGps << dt << " BASE     " << objRedis.getDataSimple("base_Latitude") << ";" << objRedis.getDataSimple("base_Latitude_Indicator") << ";" << objRedis.getDataSimple("base_Longitude") << ";" << objRedis.getDataSimple("base_Longitude_Indicator") << endl;
             fileImuGps << dt << " CURR     " << objRedis.getDataSimple("current_Latitude") << ";" << objRedis.getDataSimple("current_Latitude_Indicator") << ";" << objRedis.getDataSimple("current_Longitude") << ";" << objRedis.getDataSimple("current_Longitude_Indicator") << endl;
-            fileImuGps << dt << " STATUS   " << objRedis.getDataSimple("current_GPS_Status") << ";" << objRedis.getDataSimple("current_time_gps") << endl;
+            fileImuGps << dt << " STATUS   " << objRedis.getDataSimple("current_GPS_Status") << ";" << objRedis.getDataSimple("current_time_gps") << ";" << objRedis.getDataSimple("gps_nbrexec") << endl;
             fileImuGps << dt << endl;
         }
 

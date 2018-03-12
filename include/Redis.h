@@ -16,6 +16,7 @@ public:
 
 
     std::string getDataSimple(std::string key);
+    std::string getDataList(std::string key);
 
 private:
     connection::ptr_t m_conn;
